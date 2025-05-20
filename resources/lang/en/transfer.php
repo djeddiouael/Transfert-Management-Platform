@@ -324,4 +324,46 @@ return [
         'required' => 'This field is required',
         'invalid' => 'Invalid value',
     ],
+
+    'decision' => [
+        'title' => 'Transfer Decision',
+        'request_details' => 'Request Details',
+        'request_id' => 'Request ID',
+        'submission_date' => 'Submission Date',
+        'current_formation' => 'Current Program',
+        'desired_formation' => 'Desired Program',
+        'student_info' => 'Student Information',
+        'name' => 'Name',
+        'email' => 'Email',
+        'average_grade' => 'Average Grade',
+        'final_decision' => 'Final Decision',
+        'congratulations' => 'Congratulations!',
+        'accepted_message' => 'Your transfer request has been accepted. We are delighted to welcome you to your new program.',
+        'next_steps' => 'Next Steps',
+        'step1' => 'Confirm your online registration',
+        'step2' => 'Prepare required documents',
+        'step3' => 'Attend the welcome meeting',
+        'regret' => 'We regret to inform you',
+        'rejected_message' => 'Your transfer request could not be accepted at this time.',
+        'rejection_reason' => 'Reason for Rejection',
+        'processing_history' => 'Processing History',
+        'submitted_documents' => 'Submitted Documents',
+        'download_acceptance' => 'Download Acceptance Letter',
+        'return_dashboard' => 'Return to Dashboard'
+    ],
+
+    'status' => [
+        'pending' => 'Pending',
+        'accepted' => 'Accepted',
+        'rejected' => 'Rejected',
+        'under_review' => 'Under Review'
+    ],
+
+    'documents' => [
+        'transcript' => 'Academic Transcript',
+        'cv' => 'Curriculum Vitae',
+        'motivation_letter' => 'Motivation Letter',
+        'id_document' => 'ID Document',
+        'certificate' => 'Certificate'
+    ]
 ];

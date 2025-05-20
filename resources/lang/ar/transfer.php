@@ -430,4 +430,46 @@ return [
         'save' => 'حفظ',
         'cancel' => 'إلغاء',
     ],
+
+    'decision' => [
+        'title' => 'قرار النقل',
+        'request_details' => 'تفاصيل الطلب',
+        'request_id' => 'رقم الطلب',
+        'submission_date' => 'تاريخ التقديم',
+        'current_formation' => 'التكوين الحالي',
+        'desired_formation' => 'التكوين المطلوب',
+        'student_info' => 'معلومات الطالب',
+        'name' => 'الاسم',
+        'email' => 'البريد الإلكتروني',
+        'average_grade' => 'المعدل العام',
+        'final_decision' => 'القرار النهائي',
+        'congratulations' => 'تهانينا!',
+        'accepted_message' => 'تم قبول طلب النقل الخاص بك. يسعدنا الترحيب بك في تكوينك الجديد.',
+        'next_steps' => 'الخطوات التالية',
+        'step1' => 'تأكيد التسجيل عبر الإنترنت',
+        'step2' => 'تحضير المستندات المطلوبة',
+        'step3' => 'المشاركة في اجتماع الترحيب',
+        'regret' => 'نأسف لإعلامكم',
+        'rejected_message' => 'لم يتم قبول طلب النقل الخاص بك في هذا الوقت.',
+        'rejection_reason' => 'سبب الرفض',
+        'processing_history' => 'سجل المعالجة',
+        'submitted_documents' => 'المستندات المقدمة',
+        'download_acceptance' => 'تحميل خطاب القبول',
+        'return_dashboard' => 'العودة إلى لوحة التحكم'
+    ],
+
+    'status' => [
+        'pending' => 'قيد الانتظار',
+        'accepted' => 'مقبول',
+        'rejected' => 'مرفوض',
+        'under_review' => 'قيد المراجعة'
+    ],
+
+    'documents' => [
+        'transcript' => 'كشف النقاط',
+        'cv' => 'السيرة الذاتية',
+        'motivation_letter' => 'رسالة التحفيز',
+        'id_document' => 'وثيقة الهوية',
+        'certificate' => 'شهادة'
+    ]
 ]; 

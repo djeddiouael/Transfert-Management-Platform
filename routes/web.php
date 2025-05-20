@@ -150,8 +150,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/student/transfer-status', [TransferRequestController::class, 'studentStatus'])->name('student.transfer-status');
     Route::get('/transfer-request/check-status', [TransferRequestController::class, 'checkTransferStatus'])->name('transfer-request.check-status');
     Route::get('/transfer-request/detailed-tracking', [TransferRequestController::class, 'detailedTracking'])->name('transfer-request.detailed-tracking');
-    Route::get('/transfer-requests/step7', [TransferRequestController::class, 'step7'])
-        ->name('transfer-requests.step7');
+    Route::get('/transfer-requests/step7', [TransferRequestController::class, 'step7'])->name('transfer-requests.step7');
+    Route::get('/transfer/decision/{transferRequest}', [TransferRequestController::class, 'decision'])->name('transfer.decision');
+    Route::get('/transfer-request/{transferRequest}/download-acceptance', [TransferRequestController::class, 'downloadAcceptance'])->name('transfer-request.download-acceptance');
 });
 
 // Routes admin pour les demandes de transfert

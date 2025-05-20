@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\TransferRequestStatusUpdated;
+use PDF;
 
 
 class TransferRequestController extends Controller
@@ -79,13 +80,26 @@ class TransferRequestController extends Controller
             $transferRequest->status = 'pending';
             $transferRequest->save();
 
+            // Create initial status history
+            $transferRequest->statusHistory()->create([
+                'status' => 'pending',
+                'notes' => 'Demande soumise',
+                'changed_by' => auth()->id(),
+                'changed_at' => now()
+            ]);
+
             \Log::info('Demande de transfert créée avec succès', ['transfer_request' => $transferRequest]);
 
-            return response()->json([
-                'success' => true,
-                'message' => __('transfer.messages.request_submitted'),
-                'transfer_request' => $transferRequest
-            ]);
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => __('transfer.messages.request_submitted'),
+                    'transfer_request' => $transferRequest
+                ]);
+            }
+
+            return redirect()->route('transfer.decision', $transferRequest)
+                ->with('success', __('transfer.messages.request_submitted'));
 
         } catch (\Exception $e) {
             \Log::error('Erreur lors de la soumission de la demande de transfert', [
@@ -93,14 +107,18 @@ class TransferRequestController extends Controller
                 'trace' => $e->getTraceAsString()
             ]);
 
-            return response()->json([
-                'success' => false,
-                'message' => __('transfer.messages.request_error'),
-                'error' => $e->getMessage()
-            ], 500);
-        }
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => __('transfer.messages.request_error'),
+                    'error' => $e->getMessage()
+                ], 500);
+            }
 
-        
+            return redirect()->back()
+                ->with('error', __('transfer.messages.request_error'))
+                ->withInput();
+        }
     }
 
     // public function index()
@@ -317,5 +335,33 @@ class TransferRequestController extends Controller
         // Vérifier si l'utilisateur est un administrateur ou un responsable de département
         return auth()->user()->isAdmin() || 
                auth()->user()->isDepartmentHead($transferRequest->target_department);
+    }
+
+    public function decision(TransferRequest $transferRequest)
+    {
+        // Vérifier si l'utilisateur a le droit de voir cette demande
+        if ($transferRequest->student_id !== auth()->id() && !auth()->user()->isAdmin()) {
+            abort(403);
+        }
+
+        return view('transfer.decision', compact('transferRequest'));
+    }
+
+    public function downloadAcceptance(TransferRequest $transferRequest)
+    {
+        // Vérifier si l'utilisateur a le droit de télécharger cette lettre
+        if ($transferRequest->student_id !== auth()->id() && !auth()->user()->isAdmin()) {
+            abort(403);
+        }
+
+        // Vérifier si la demande a été acceptée
+        if ($transferRequest->status !== 'accepted') {
+            return redirect()->back()->with('error', __('transfer.messages.not_accepted'));
+        }
+
+        // Générer la lettre d'acceptation
+        $pdf = PDF::loadView('transfer.acceptance_letter', compact('transferRequest'));
+
+        return $pdf->download('lettre_acceptation_' . $transferRequest->id . '.pdf');
     }
 } 

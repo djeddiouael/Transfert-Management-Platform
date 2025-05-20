@@ -191,5 +191,47 @@ return [
         'error' => 'Une erreur est survenue',
         'required' => 'Ce champ est obligatoire',
         'invalid' => 'Valeur invalide'
+    ],
+
+    'decision' => [
+        'title' => 'Décision de Transfert',
+        'request_details' => 'Détails de la Demande',
+        'request_id' => 'Numéro de Demande',
+        'submission_date' => 'Date de Soumission',
+        'current_formation' => 'Formation Actuelle',
+        'desired_formation' => 'Formation Souhaitée',
+        'student_info' => 'Informations de l\'Étudiant',
+        'name' => 'Nom',
+        'email' => 'Email',
+        'average_grade' => 'Moyenne Générale',
+        'final_decision' => 'Décision Finale',
+        'congratulations' => 'Félicitations !',
+        'accepted_message' => 'Votre demande de transfert a été acceptée. Nous sommes ravis de vous accueillir dans votre nouvelle formation.',
+        'next_steps' => 'Prochaines Étapes',
+        'step1' => 'Confirmez votre inscription en ligne',
+        'step2' => 'Préparez les documents requis',
+        'step3' => 'Participez à la réunion d\'accueil',
+        'regret' => 'Nous regrettons de vous informer',
+        'rejected_message' => 'Votre demande de transfert n\'a pas pu être acceptée pour le moment.',
+        'rejection_reason' => 'Raison du Refus',
+        'processing_history' => 'Historique du Traitement',
+        'submitted_documents' => 'Documents Soumis',
+        'download_acceptance' => 'Télécharger la Lettre d\'Acceptation',
+        'return_dashboard' => 'Retour au Tableau de Bord'
+    ],
+
+    'status' => [
+        'pending' => 'En Attente',
+        'accepted' => 'Accepté',
+        'rejected' => 'Refusé',
+        'under_review' => 'En Cours d\'Examen'
+    ],
+
+    'documents' => [
+        'transcript' => 'Relevé de Notes',
+        'cv' => 'Curriculum Vitae',
+        'motivation_letter' => 'Lettre de Motivation',
+        'id_document' => 'Pièce d\'Identité',
+        'certificate' => 'Certificat'
     ]
 ]; 
