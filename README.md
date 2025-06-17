@@ -1,23 +1,132 @@
 # Transfert Management Platform
 
-## Résumé
-
-Le transfert est un processus mis en œuvre par les universités chaque début d’année universitaire afin de permettre aux étudiants de changer de parcours de formation. Ce processus nécessite le dépôt d’un dossier, suivi de son étude par le vice-décanat et le vice-rectorat chargé de la pédagogie. Cependant, cette tâche devient de plus en plus lourde en raison de la forte demande et de la complexité de la procédure. L’objectif de ce projet est de développer une plateforme numérique permettant aux étudiants de déposer un dossier de transfert de manière dématérialisée et de suivre en temps réel l’état d’avancement de leur dossier. Par ailleurs, cette plateforme offrira à l’administration un outil pour étudier ces dossiers de manière plus simple, organisée et efficace, tout en réduisant les délais de traitement et les erreurs liées à la gestion manuelle.
-
-### Objectifs
-- Simplifier le processus de transfert pour les étudiants et l’administration.
-- Permettre un suivi en temps réel de l’état des dossiers.
-- Réduire les délais de traitement et les erreurs liées à la gestion manuelle.
-- Contribuer à la modernisation des processus administratifs universitaires.
+Plateforme web de gestion et de suivi des demandes de transfert universitaire développée avec Laravel.
 
 ---
 
-## Abstract
+## 📋 Présentation
 
-The transfer process is a procedure carried out by universities at the beginning of each academic year to allow students to change their academic programs. This process requires the submission of an application file, which is then reviewed by the vice-deanship and the vice-rectorate in charge of pedagogy. However, this task has become increasingly burdensome due to the high demand and the complexity of the procedure. The aim of this project is to develop a digital platform that enables students to submit their transfer applications online and track the status of their files in real time. Additionally, this platform will provide the administration with a tool to review these applications in a simpler, more organized, and efficient manner, while reducing processing times and errors associated with manual handling.
+La **Transfert Management Platform** est une application Laravel permettant aux étudiants de déposer, suivre et gérer leurs demandes de transfert entre universités. Les administrateurs disposent d'outils puissants pour centraliser et traiter efficacement ces dossiers.
 
-### Objectives
-- Simplify the transfer process for both students and the administration.
-- Enable real-time tracking of application status.
-- Reduce processing times and errors linked to manual management.
-- Contribute to the modernization of university administrative processes.
+---
+
+## 🌟 Fonctionnalités principales
+
+- **Authentification sécurisée** : Gestion des étudiants et des administrateurs via le système natif de Laravel.
+- **Dépôt de dossier en ligne** : Formulaires clairs pour la soumission des documents nécessaires.
+- **Suivi en temps réel** : Visualisation de l’état d’avancement du dossier (nouveau, en cours, accepté, refusé, etc.).
+- **Notifications** : Alertes par email intégrées (Laravel Notifications).
+- **Tableau de bord administratif** : Gestion des demandes, recherche, filtrage, statistiques.
+- **Historique complet** : Journalisation des actions sur chaque dossier.
+- **Sécurité** : Middleware, validation, et protection des données utilisateurs.
+
+---
+
+## 🏗️ Stack technique
+
+- **Framework** : [Laravel](https://laravel.com/) (PHP)
+- **Base de données** : MySQL / MariaDB / PostgreSQL
+- **Front-end** : Blade, Bootstrap/Tailwind, Livewire ou Vue.js (optionnel)
+- **Authentification** : Laravel Breeze/Jetstream/Fortify (au choix)
+- **Notifications** : Laravel Notifications (email, éventuellement SMS)
+- **Outils supplémentaires** : Laravel Excel (export), Spatie Permissions (gestion des rôles), etc.
+
+---
+
+## 🖥️ Structure du projet
+
+```
+Transfert-Management-Platform/
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+├── resources/
+│   ├── views/
+├── routes/
+├── storage/
+├── tests/
+├── .env.example
+├── composer.json
+├── README.md
+└── ...
+```
+
+---
+
+## 🚀 Installation
+
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/djeddiouael/Transfert-Management-Platform.git
+   cd Transfert-Management-Platform
+   ```
+
+2. **Installer les dépendances**
+   ```bash
+   composer install
+   npm install && npm run build
+   ```
+
+3. **Configurer l’environnement**
+   - Copier `.env.example` en `.env`
+   - Configurer la base de données, mail, etc.
+
+4. **Générer la clé d’application**
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Lancer les migrations et seeders**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. **Démarrer le serveur**
+   ```bash
+   php artisan serve
+   ```
+   Accéder à [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 📄 Cas d’utilisation
+
+### Étudiant
+- S’inscrire ou se connecter
+- Remplir et déposer une demande de transfert avec pièces jointes
+- Suivre l’évolution de sa demande dans le tableau de bord
+- Recevoir des notifications par email
+
+### Administration
+- Se connecter en tant qu’admin
+- Voir et gérer toutes les demandes
+- Filtrer, trier, accepter/refuser les dossiers
+- Exporter les listes/statistiques
+
+---
+
+## ✅ Bonnes pratiques & sécurité
+
+- **Validation forte des formulaires** avec les règles Laravel
+- **Protection CSRF/XSS** native à Laravel
+- **Gestion des rôles et permissions** (Spatie Permissions recommandé)
+- **Stockage sécurisé des fichiers** dans `/storage`
+- **Respect de la confidentialité** (RGPD)
+
+---
+
+## 🤝 Contribution
+
+1. Forkez ce dépôt
+2. Créez une branche (`git checkout -b feature/NouvelleFonctionnalite`)
+3. Commitez vos modifications (`git commit -am 'Ajout d'une nouvelle fonctionnalité'`)
+4. Pushez la branche (`git push origin feature/NouvelleFonctionnalite`)
+5. Ouvrez une Pull Request
+
+---
+
+## 📝 Licence
+
+Ce projet est sous licence MIT.
